@@ -1,0 +1,32 @@
+version: 0.0
+os: linux
+hooks:
+  BeforeInstall:
+    - location: scripts/install_docker.sh
+      timeout: 300
+      runas: ubuntu
+
+  ApplicationStop:
+    - location: scripts/stop_docker_container.sh
+      timeout: 300
+      runas: ubuntu
+
+  AfterInstall:
+    - location: scripts/pull_docker_image.sh
+      timeout: 300
+      runas: ubuntu
+
+  ApplicationStart:
+    - location: scripts/start_docker_container.sh
+      timeout: 300
+      runas: ubuntu
+
+  AfterAllowTraffic:
+    - location: scripts/success_webhook.sh
+      timeout: 300
+      runas: ubuntu
+
+  AfterBlockTraffic:
+    - location: scripts/failure_webhook.sh
+      timeout: 300
+      runas: ubuntu
