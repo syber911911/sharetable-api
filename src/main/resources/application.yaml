@@ -1,0 +1,10 @@
+spring:
+  config:
+    import:
+      - classpath:/yaml/application-local.yaml
+      - classpath:/yaml/application-prod.yaml
+  profiles:
+    active: local
+
+
+
