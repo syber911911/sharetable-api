@@ -17,19 +17,19 @@ import org.bouncycastle.util.io.pem.*;
 @Service
 public class AppleService {
 
-    @Value("${apple.team.id}")
+//    @Value("${apple.team.id}")
     private String APPLE_TEAM_ID;
 
-    @Value("${apple.login.key}")
+//    @Value("${apple.login.key}")
     private String APPLE_LOGIN_KEY;
 
-    @Value("${apple.client.id}")
+//    @Value("${apple.client.id}")
     private String APPLE_CLIENT_ID;
 
-    @Value("${apple.redirect.url}")
+//    @Value("${apple.redirect.url}")
     private String APPLE_REDIRECT_URL;
 
-    @Value("${apple.key.path}")
+//    @Value("${apple.key.path}")
     private String APPLE_KEY_PATH;
 
     private final static String APPLE_AUTH_URL = "https://appleid.apple.com";
