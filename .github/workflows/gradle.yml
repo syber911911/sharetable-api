@@ -58,7 +58,7 @@ jobs:
             type=sha
 
       - name: Print Docker metadata
-        run: echo "Docker images ${{steps.docker_meta.outputs}}"
+        run: echo "Docker images ${{ steps.docker_meta.outputs.tags }}"
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
@@ -93,7 +93,7 @@ jobs:
           --application-name ${{ secrets.AWS_DEPLOY_APP_NAME }} \
           --deployment-group-name ${{ secrets.AWS_DEPLOY_GROUP }}  \
           --deployment-config-name ${{ secrets.AWS_DEPLOY_CONFIG }} \
-          --github-location repository=syber911911/share-table-be,commitId=$(git rev-parse origin/main)
+          --github-location repository=syber911911/sharetable-api,commitId=$(git rev-parse origin/main)
 
   dependency-submission:
 
