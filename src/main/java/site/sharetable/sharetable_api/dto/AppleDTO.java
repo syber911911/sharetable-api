@@ -1,4 +1,4 @@
-package site.sharetable.sharetable_api.apple;
+package site.sharetable.sharetable_api.dto;
 import lombok.Builder;
 import lombok.Data;
 

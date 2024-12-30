@@ -10,8 +10,8 @@ spring:
     driver-class-name: org.h2.Driver
     url: 'jdbc:h2:mem:test' # H2 In-Memory Mode
     # url: 'jdbc:h2:~/test' # H2 Embedded Mode
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    username: ${ DATABASE_USERNAME }
+    password: ${ DATABASE_PASSWORD }
 
   h2:
     console:
@@ -29,6 +29,18 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         format_sql: true
         show_sql: true
+
+apple:
+  team:
+    id: ${ APPLE_TEAM_ID }
+  login:
+    key: ${ APPLE_LOGIN_KEY }
+  client:
+    id: ${ APPLE_CLIENT_ID }
+  redirect:
+    url: ${ APPLE_REDIRECT_URL }
+  key:
+    path: key/AuthKey_5J65PS3Y38.p8
 
 #  data:
 #    redis:

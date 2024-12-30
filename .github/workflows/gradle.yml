@@ -38,6 +38,10 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
           DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_LOGIN_KEY: ${{ secrets.APPLE_LOGIN_KEY }}
+          APPLE_CLIENT_ID: ${{ secrets.APPLE_CLIENT_ID }}
+          APPLE_REDIRECT_URL: ${{ secrets.APPLE_REDIRECT_URL }}
         run: ./gradlew clean build # clean build or Q class ignore
 
       - name: Set up Docker Buildx

@@ -1,4 +1,4 @@
-package site.sharetable.sharetable_api;
+package site.sharetable.sharetable_api.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
