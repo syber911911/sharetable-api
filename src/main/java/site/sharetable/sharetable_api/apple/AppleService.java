@@ -37,6 +37,9 @@ public class AppleService {
 
     private final static String APPLE_AUTH_URL = "https://appleid.apple.com";
 
+    public String testAppleId() {
+        return APPLE_TEAM_ID;
+    }
 
     public String getAppleLogin() {
         return APPLE_AUTH_URL + "/auth/authorize"

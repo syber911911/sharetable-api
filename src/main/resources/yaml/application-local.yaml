@@ -32,15 +32,15 @@ spring:
 
 apple:
   team:
-    id: ${ APPLE_TEAM_ID }
+    id: ${ APPLE_TEAM_ID:default_value }
   login:
-    key: ${ APPLE_LOGIN_KEY }
+    key: ${ APPLE_LOGIN_KEY:default_value }
   client:
-    id: ${ APPLE_CLIENT_ID }
+    id: ${ APPLE_CLIENT_ID:default_value }
   redirect:
-    url: ${ APPLE_REDIRECT_URL }
+    url: ${ APPLE_REDIRECT_URL:default_value }
   key:
-    path: ${ APPLE_KEY_PATH }
+    path: ${ APPLE_KEY_PATH:default_value }
 
 #  data:
 #    redis:
