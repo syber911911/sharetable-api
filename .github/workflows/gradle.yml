@@ -44,8 +44,12 @@ jobs:
           APPLE_CLIENT_ID: ${{ secrets.APPLE_CLIENT_ID }}
           APPLE_REDIRECT_URL: ${{ secrets.APPLE_REDIRECT_URL }}
 
-      - name: Debug ENV Variables
-        run: printenv
+      - name: Debug Gradle ENV Variables
+        run: ./gradlew debugEnv
+        env:
+          SPRING_PROFILES_ACTIVE: local
+          DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
