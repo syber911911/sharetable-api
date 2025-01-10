@@ -32,9 +32,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
-      - name: Print Apple
-        run: echo "APPLE TEAM ID ${{ secrets.APPLE_TEAM_ID }}"
-
       - name: Build with Gradle Wrapper
         env:
           SPRING_PROFILES_ACTIVATE: local # prod 로 변경
@@ -45,7 +42,8 @@ jobs:
           APPLE_LOGIN_KEY: ${{ secrets.APPLE_LOGIN_KEY }}
           APPLE_CLIENT_ID: ${{ secrets.APPLE_CLIENT_ID }}
           APPLE_REDIRECT_URL: ${{ secrets.APPLE_REDIRECT_URL }}
-        run: ./gradlew clean build # clean build or Q class ignore
+        run: echo "${APPLE_TEAM_ID}"
+#        run: ./gradlew clean build # clean build or Q class ignore
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
