@@ -33,16 +33,16 @@ jobs:
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew clean build --info # clean build or Q class ignore
         env:
           SPRING_PROFILES_ACTIVE: local # prod 로 변경
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_USERNAME: "test"
-          DATABASE_PASSWORD: "test"
+          DATABASE_USERNAME: "sharetable"
+          DATABASE_PASSWORD: "sharetable"
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           APPLE_LOGIN_KEY: ${{ secrets.APPLE_LOGIN_KEY }}
           APPLE_CLIENT_ID: ${{ secrets.APPLE_CLIENT_ID }}
           APPLE_REDIRECT_URL: ${{ secrets.APPLE_REDIRECT_URL }}
+        run: ./gradlew clean build --info # clean build or Q class ignore
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
