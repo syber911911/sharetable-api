@@ -49,14 +49,6 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.register('debugEnv') {
-	doFirst {
-		println("---- ENV DEBUG ----")
-		println("DATABASE_USERNAME: ${System.getenv('DATABASE_USERNAME')}")
-		println("DATABASE_PASSWORD: ${System.getenv('DATABASE_PASSWORD')}")
-	}
-}
-
 // queryDsl 설정 ↓↓↓
 def querydslDir = "src/main/generated"
 sourceSets {
