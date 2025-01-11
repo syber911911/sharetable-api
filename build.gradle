@@ -52,9 +52,13 @@ dependencies {
 def activeProfile = System.getenv("SPRING_PROFILES_ACTIVE") ?: "local"
 
 processResources {
+	println "$activeProfile"
+	println System.getenv("DATABASE_USERNAME")
+
 	filesMatching("**/application.yaml") {
 		expand(SPRING_PROFILES_ACTIVE: activeProfile)
 	}
+
 	filesMatching("**/application-${activeProfile}.yaml") {
 		expand([
 				DATABASE_URL: System.getenv("DATABASE_URL"),
