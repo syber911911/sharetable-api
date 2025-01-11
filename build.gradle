@@ -60,7 +60,11 @@ processResources {
 		expand([
 				DATABASE_URL: System.getenv("DATABASE_URL"),
 				DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"),
-				DATABASE_PASSWORD: System.getenv("DATABASE_PASSWORD")
+				DATABASE_PASSWORD: System.getenv("DATABASE_PASSWORD"),
+				APPLE_TEAM_ID: System.getenv("APPLE_TEAM_ID"),
+				APPLE_LOGIN_KEY: System.getenv("APPLE_LOGIN_KEY"),
+				APPLE_CLIENT_ID: System.getenv("APPLE_CLIENT_ID"),
+				APPLE_REDIRECT_URL: System.getenv("APPLE_REDIRECT_URL")
 		])
 	}
 }
