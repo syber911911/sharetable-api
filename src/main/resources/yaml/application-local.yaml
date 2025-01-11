@@ -37,17 +37,17 @@ spring:
         format_sql: true
         show_sql: true
 
-#apple:
-#  team:
-#    id: ${APPLE_TEAM_ID:default_value}
-#  login:
-#    key: ${APPLE_LOGIN_KEY:default_value}
-#  client:
-#    id: ${APPLE_CLIENT_ID:default_value}
-#  redirect:
-#    url: ${APPLE_REDIRECT_URL:default_value}
-#  key:
-#    path: ${APPLE_KEY_PATH:default_value}
+apple:
+  team:
+    id: ${APPLE_TEAM_ID}
+  login:
+    key: ${APPLE_LOGIN_KEY}
+  client:
+    id: ${APPLE_CLIENT_ID}
+  redirect:
+    url: ${APPLE_REDIRECT_URL}
+  key:
+    path: ${APPLE_KEY_PATH}
 
 #  data:
 #    redis:
