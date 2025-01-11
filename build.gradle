@@ -49,24 +49,27 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-def activeProfile = System.getenv("SPRING_PROFILES_ACTIVE") ?: "local"
 
-processResources {
-	println "$activeProfile"
-	println System.getenv("DATABASE_USERNAME")
 
-	filesMatching("**/application.yaml") {
-		expand(SPRING_PROFILES_ACTIVE: activeProfile)
-	}
 
-	filesMatching("**/application-${activeProfile}.yaml") {
-		expand([
-				DATABASE_URL: System.getenv("DATABASE_URL"),
-				DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"),
-				DATABASE_PASSWORD: System.getenv("DATABASE_PASSWORD")
-		])
+clean.doFirst {
+	def activeProfile = System.getenv("SPRING_PROFILES_ACTIVE") ?: "local"
+	processResources {
+		filesMatching("**/application.yaml") {
+			expand(SPRING_PROFILES_ACTIVE: activeProfile)
+		}
+
+		filesMatching("**/application-${activeProfile}.yaml") {
+			expand([
+					DATABASE_URL: System.getenv("DATABASE_URL"),
+					DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"),
+					DATABASE_PASSWORD: System.getenv("DATABASE_PASSWORD")
+			])
+		}
 	}
 }
+
+
 
 // queryDsl 설정 ↓↓↓
 def querydslDir = "src/main/generated"
