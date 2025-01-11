@@ -64,7 +64,8 @@ processResources {
 				APPLE_TEAM_ID: System.getenv("APPLE_TEAM_ID"),
 				APPLE_LOGIN_KEY: System.getenv("APPLE_LOGIN_KEY"),
 				APPLE_CLIENT_ID: System.getenv("APPLE_CLIENT_ID"),
-				APPLE_REDIRECT_URL: System.getenv("APPLE_REDIRECT_URL")
+				APPLE_REDIRECT_URL: System.getenv("APPLE_REDIRECT_URL"),
+				APPLE_KEY_PATH: "path"
 		])
 	}
 }
