@@ -52,35 +52,18 @@ dependencies {
 def activeProfile = System.getenv("SPRING_PROFILES_ACTIVE") ?: "local"
 
 processResources {
-	println System.getenv("DATABASE_USERNAME")
-	println activeProfile
+	filesMatching("application.yaml") {
+		expand(SPRING_PROFILES_ACTIVE: activeProfile)
+	}
 
 	filesMatching("**/application-${activeProfile}.yaml") {
 		expand([
+				DATABASE_URL: System.getenv("DATABASE_URL"),
 				DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"),
-				DATABASE_PASSWORD: System.getenv("DATABASE_USERNAME")
+				DATABASE_PASSWORD: System.getenv("DATABASE_PASSWORD")
 		])
 	}
 }
-
-//def activeProfile = System.getenv("SPRING_PROFILES_ACTIVE") ?: "local"
-//
-//processResources {
-//	println "--------------"
-//	println System.getenv("DATABASE_USERNAME").length()
-//
-//	filesMatching("application.yaml") {
-//		expand(SPRING_PROFILES_ACTIVE: activeProfile)
-//	}
-//
-//	filesMatching("**/application-${activeProfile}.yaml") {
-//		expand([
-//				DATABASE_URL: System.getenv("DATABASE_URL"),
-//				DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"),
-//				DATABASE_PASSWORD: System.getenv("DATABASE_PASSWORD")
-//		])
-//	}
-//}
 
 // queryDsl 설정 ↓↓↓
 def querydslDir = "src/main/generated"
