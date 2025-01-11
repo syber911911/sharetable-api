@@ -56,7 +56,10 @@ processResources {
 	println activeProfile
 
 	filesMatching("**/application-${activeProfile}.yaml") {
-		expand(DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"))
+		expand([
+				DATABASE_USERNAME: System.getenv("DATABASE_USERNAME"),
+				DATABASE_PASSWORD: System.getenv("DATABASE_USERNAME")
+		])
 	}
 }
 
