@@ -55,7 +55,7 @@ processResources {
 	println "--------------"
 	println System.getenv("DATABASE_USERNAME").length()
 
-	filesMatching("**/application.yaml") {
+	filesMatching("application.yaml") {
 		expand(SPRING_PROFILES_ACTIVE: activeProfile)
 	}
 
