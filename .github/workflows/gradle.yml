@@ -46,7 +46,6 @@ jobs:
           APPLE_LOGIN_KEY: ${{ secrets.APPLE_LOGIN_KEY }}
           APPLE_CLIENT_ID: ${{ secrets.APPLE_CLIENT_ID }}
           APPLE_REDIRECT_URL: ${{ secrets.APPLE_REDIRECT_URL }}
-          APPLE_KEY_PATH: ${{ secrets.APPLE_KEY_PATH }}
         run: ./gradlew clean build --scan # clean build or Q class ignore
 
       - name: Upload JAR as artifact
