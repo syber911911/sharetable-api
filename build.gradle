@@ -60,11 +60,13 @@ processResources {
 			throw new GradleException("APPLE_KEY ENV is Null")
 		}
 
+		def decodedAppleKeyContent = Base64.decoder.decode(appleKeyContent)
+
 		def outputDir = "${projectDir}/src/main/resources/secrets"
 		def outputFile = new File(outputDir, "apple-key.p8")
 
 		mkdir(outputDir)
-		outputFile.text = appleKeyContent
+		outputFile.text = decodedAppleKeyContent
 
 		println "Make Apple Key File at ${outputFile}"
 	}
