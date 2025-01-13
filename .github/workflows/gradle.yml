@@ -1,6 +1,7 @@
 name: Java CI with Gradle
 
 # main branch 변경 감지
+# dev branch 추가 시점에 branch 에 따라 active profile 이 변경 될 수 있도록 수정
 on:
   push:
     branches: [ "main" ]
@@ -32,6 +33,9 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
+      - name: Setup Apple Key File
+        run: echo "APPLE_KEY=${{ secrets.APPLE_KEY }}" >> $GITHUB_ENV
+
       - name: Build with Gradle Wrapper
         env:
           SPRING_PROFILES_ACTIVE: local # prod 로 변경
@@ -42,6 +46,7 @@ jobs:
           APPLE_LOGIN_KEY: ${{ secrets.APPLE_LOGIN_KEY }}
           APPLE_CLIENT_ID: ${{ secrets.APPLE_CLIENT_ID }}
           APPLE_REDIRECT_URL: ${{ secrets.APPLE_REDIRECT_URL }}
+          APPLE_KEY_PATH: ${{ secrets.APPLE_KEY_PATH }}
         run: ./gradlew clean build --scan # clean build or Q class ignore
 
       - name: Upload JAR as artifact
